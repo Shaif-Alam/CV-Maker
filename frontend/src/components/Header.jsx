@@ -9,8 +9,22 @@ const Header = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const { header } = homeData;
 
-    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || 'null'));
     const isAuthenticated = !!localStorage.getItem('token');
+
+    React.useEffect(() => {
+        if (isAuthenticated && (!user?.lastName || !user?.mobileNumber)) {
+            axios.get('http://localhost:5000/api/auth/me', {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            }).then(res => {
+                const updatedUser = res.data;
+                localStorage.setItem('user', JSON.stringify(updatedUser));
+                setUser(updatedUser);
+            }).catch(err => {
+                console.error('Failed to fetch user profile:', err);
+            });
+        }
+    }, [isAuthenticated, user]);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -175,8 +189,11 @@ const Header = () => {
                     {isAuthenticated ? (
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginTop: '2rem', padding: '1.5rem', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '12px' }}>
                             <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'white' }}>{user?.email}</div>
-                                <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>{user?.mobileNumber}</div>
+                                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'white', marginBottom: '0.25rem' }}>
+                                    {user?.firstName} {user?.lastName || ''}
+                                </div>
+                                <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.9)', marginBottom: '0.25rem' }}>{user?.email}</div>
+                                {user?.mobileNumber && <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>{user?.mobileNumber}</div>}
                             </div>
                             <button
                                 className="btn btn-primary"
