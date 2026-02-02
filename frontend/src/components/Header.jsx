@@ -84,14 +84,16 @@ const Header = () => {
                                     {/* User Info Header */}
                                     <div style={{ padding: '0.75rem', borderBottom: '1px solid #f1f5f9', marginBottom: '0.5rem' }}>
                                         <div style={{ fontWeight: '700', color: '#1a202c', fontSize: '0.95rem', marginBottom: '0.25rem', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                            {user?.firstName} {user?.lastName}
+                                            {user?.firstName} {user?.lastName || ''}
                                         </div>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#718096', fontSize: '0.8rem', marginBottom: '0.25rem' }}>
                                             <Mail size={12} /> {user?.email}
                                         </div>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#718096', fontSize: '0.8rem' }}>
-                                            <Phone size={12} /> {user?.mobileNumber}
-                                        </div>
+                                        {user?.mobileNumber && (
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#718096', fontSize: '0.8rem' }}>
+                                                <Phone size={12} /> {user?.mobileNumber}
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Menu Items */}
