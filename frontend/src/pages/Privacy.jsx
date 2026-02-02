@@ -11,12 +11,10 @@ const Privacy = () => {
         <div className="home-container">
             <Header />
 
-            <section className="blog-header-ribbon">
-                <div className="blog-container" style={{ display: 'block', textAlign: 'center' }}>
-                    <h1 style={{ marginBottom: '1rem' }}>Privacy and Cookie Statement</h1>
-                    <p style={{ opacity: 0.9 }}>Last Updated November 17, 2020</p>
-                </div>
-            </section>
+            <div className="login-hero-ribbon">
+                <h1>Privacy and Cookie Statement</h1>
+                <p>Last Updated November 17, 2020</p>
+            </div>
 
             <section className="blog-container" style={{ display: 'block', maxWidth: '900px', background: 'white', marginTop: '-3rem', borderRadius: '12px', padding: '4rem', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
                 <div className="privacy-content" style={{ color: '#334155', lineHeight: '1.8' }}>

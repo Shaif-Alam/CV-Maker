@@ -17,27 +17,16 @@ const Contact = () => {
             <Header />
 
             <main style={{ backgroundColor: '#f8fafc', minHeight: '100vh', paddingBottom: '4rem' }}>
-                {/* Green Header Ribbon */}
-                <div style={{
-                    backgroundColor: '#10b981', // Green color
-                    padding: '3rem 5% 10rem',
-                    textAlign: 'center',
-                    color: 'white',
-                    clipPath: 'polygon(0 0, 100% 0, 100% 85%, 0% 100%)',
-                    marginBottom: '-4rem'
-                }}>
-                    <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-                        {contactPage.header.title}
-                    </h1>
-                    <p style={{ fontSize: '1.1rem', opacity: '0.9', fontStyle: 'italic' }}>
-                        {contactPage.header.subtitle}
-                    </p>
+                {/* Hero Ribbon */}
+                <div className="login-hero-ribbon">
+                    <h1>{contactPage.header.title}</h1>
+                    <p>{contactPage.header.subtitle}</p>
                 </div>
 
                 {/* Contact Cards */}
                 <div style={{
                     maxWidth: '1000px',
-                    margin: '0 auto',
+                    margin: '-4rem auto 0',
                     display: 'flex',
                     justifyContent: 'center',
                     gap: '2rem',
@@ -47,10 +36,7 @@ const Contact = () => {
                     zIndex: 10
                 }}>
                     {contactPage.cards.map((card, index) => (
-                        <div key={index} style={{
-                            backgroundColor: 'white',
-                            borderRadius: '8px',
-                            boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
+                        <div key={index} className="login-card-v2" style={{
                             padding: '3rem 2rem',
                             textAlign: 'center',
                             flex: '1',
@@ -62,17 +48,15 @@ const Contact = () => {
                         }}>
                             <div style={{ color: '#4b5563', marginBottom: '1.5rem' }}>
                                 {card.icon === 'mail' && <Mail size={48} strokeWidth={1} />}
-                                {card.icon === 'lifebuoy' && <LifeBuoy size={48} strokeWidth={1} style={{ color: '#e74c3c' }} />}
+                                {card.icon === 'lifebuoy' && <LifeBuoy size={48} strokeWidth={1} style={{ color: 'var(--accent-solid)' }} />}
                             </div>
                             <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>{card.title}</h3>
                             <p style={{ color: '#666', marginBottom: '2rem', lineHeight: '1.6', fontSize: '0.95rem' }}>{card.description}</p>
-                            <button className="btn" style={{
-                                backgroundColor: '#6366f1',
-                                color: 'white',
+                            <button className="btn-primary" style={{
+                                width: '100%',
+                                marginBottom: '1.5rem',
                                 padding: '0.75rem 2rem',
                                 borderRadius: '30px',
-                                width: '100%',
-                                marginBottom: '1.5rem'
                             }}>
                                 {card.buttonText}
                             </button>

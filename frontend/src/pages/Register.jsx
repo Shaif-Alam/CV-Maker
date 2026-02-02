@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { ChevronRight, Eye, EyeOff } from 'lucide-react';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +13,7 @@ const Register = () => {
         mobileNumber: '',
         password: '',
     });
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -31,19 +35,95 @@ const Register = () => {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <form className="glass-card" style={{ width: '400px', padding: '2rem' }} onSubmit={handleSubmit}>
-                <h2 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Create Account</h2>
-                <input name="firstName" value={formData.firstName} placeholder="First Name" className="input-field" onChange={handleChange} required />
-                <input name="lastName" value={formData.lastName} placeholder="Last Name" className="input-field" onChange={handleChange} required />
-                <input name="email" type="email" value={formData.email} placeholder="Email Address" className="input-field" onChange={handleChange} required />
-                <input name="mobileNumber" value={formData.mobileNumber} placeholder="Mobile Number" className="input-field" onChange={handleChange} required />
-                <input name="password" type="password" value={formData.password} placeholder="Password" className="input-field" onChange={handleChange} required />
-                <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>Register</button>
-                <div style={{ marginTop: '1rem', textAlign: 'center', fontSize: '0.9rem' }}>
-                    Already have an account? <span onClick={() => navigate('/login')} style={{ color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>Login</span>
-                </div>
-            </form>
+        <div className="login-page-v2">
+            <Header />
+
+            <div className="login-hero-ribbon">
+                <h1>Create Account</h1>
+                <p>Build your professional resume and land your dream job</p>
+            </div>
+
+            <div className="login-form-container">
+                <form onSubmit={handleSubmit} className="login-v2-form">
+                    <div className="login-card-v2" style={{ gap: '1.5rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                            <div className="input-group-v2">
+                                <label>First Name*</label>
+                                <input
+                                    name="firstName"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group-v2">
+                                <label>Last Name*</label>
+                                <input
+                                    name="lastName"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div className="input-group-v2">
+                            <label>Email address*</label>
+                            <input
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="input-group-v2">
+                            <label>Mobile Number*</label>
+                            <input
+                                name="mobileNumber"
+                                value={formData.mobileNumber}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="input-group-v2">
+                            <label>Password*</label>
+                            <div className="password-wrapper">
+                                <input
+                                    name="password"
+                                    type={showPassword ? "text" : "password"}
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    className="toggle-password"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="login-action-container">
+                        <button type="submit" className="login-submit-btn-v2">
+                            Register <ChevronRight size={24} />
+                        </button>
+
+                        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                            <p style={{ color: '#64748b' }}>
+                                Already have an account? <Link to="/login" style={{ color: 'var(--accent-solid)', fontWeight: '600' }}>Login</Link>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <Footer />
         </div>
     );
 };
