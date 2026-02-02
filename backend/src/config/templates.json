@@ -1,0 +1,32 @@
+[
+    {
+        "id": "auckland",
+        "name": "Auckland",
+        "price": 0.0,
+        "thumbnail": "/assets/templates/auckland.png",
+        "theme": {
+            "primaryColor": "#000000",
+            "fontFamily": "Inter, sans-serif"
+        }
+    },
+    {
+        "id": "berkeley",
+        "name": "Berkeley",
+        "price": 5.99,
+        "thumbnail": "/assets/templates/berkeley.png",
+        "theme": {
+            "primaryColor": "#1e40af",
+            "fontFamily": "Merriweather, serif"
+        }
+    },
+    {
+        "id": "cambridge",
+        "name": "Cambridge",
+        "price": 9.99,
+        "thumbnail": "/assets/templates/cambridge.png",
+        "theme": {
+            "primaryColor": "#1e3a8a",
+            "fontFamily": "Roboto, sans-serif"
+        }
+    }
+]

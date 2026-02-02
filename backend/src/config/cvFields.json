@@ -1,0 +1,117 @@
+{
+    "sections": [
+        {
+            "id": "personal",
+            "title": "Personal Details",
+            "fields": [
+                {
+                    "id": "fullName",
+                    "label": "Full Name",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "jobTitle",
+                    "label": "Job Title",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "email",
+                    "label": "Email Address",
+                    "type": "email",
+                    "required": true
+                },
+                {
+                    "id": "phone",
+                    "label": "Phone Number",
+                    "type": "tel"
+                },
+                {
+                    "id": "address",
+                    "label": "Address",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "id": "summary",
+            "title": "Career Summary",
+            "fields": [
+                {
+                    "id": "objective",
+                    "label": "Professional Objective",
+                    "type": "textarea"
+                }
+            ]
+        },
+        {
+            "id": "experience",
+            "title": "Work Experience",
+            "isList": true,
+            "fields": [
+                {
+                    "id": "company",
+                    "label": "Company Name",
+                    "type": "text"
+                },
+                {
+                    "id": "role",
+                    "label": "Job Role",
+                    "type": "text"
+                },
+                {
+                    "id": "duration",
+                    "label": "Duration (e.g. 2020 - Present)",
+                    "type": "text"
+                },
+                {
+                    "id": "description",
+                    "label": "Description",
+                    "type": "textarea"
+                }
+            ]
+        },
+        {
+            "id": "education",
+            "title": "Education",
+            "isList": true,
+            "fields": [
+                {
+                    "id": "institution",
+                    "label": "School/University",
+                    "type": "text"
+                },
+                {
+                    "id": "degree",
+                    "label": "Degree",
+                    "type": "text"
+                },
+                {
+                    "id": "year",
+                    "label": "Year of Completion",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "id": "skills",
+            "title": "Skills",
+            "isList": true,
+            "fields": [
+                {
+                    "id": "name",
+                    "label": "Skill Name",
+                    "type": "text"
+                },
+                {
+                    "id": "level",
+                    "label": "Level (1-5)",
+                    "type": "number",
+                    "min": 1,
+                    "max": 5
+                }
+            ]
+        }
+    ]
+}

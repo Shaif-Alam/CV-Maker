@@ -1,0 +1,306 @@
+{
+    "header": {
+        "logo": "cvmaker",
+        "navLinks": [
+            {
+                "label": "Create Resume",
+                "path": "/builder"
+            },
+            {
+                "label": "Resume templates",
+                "path": "/templates"
+            },
+            {
+                "label": "CV templates",
+                "path": "/cv-templates"
+            },
+            {
+                "label": "Resume Writing Service",
+                "path": "/services"
+            },
+            {
+                "label": "Blog",
+                "path": "/blog"
+            },
+            {
+                "label": "Pricing",
+                "path": "/pricing"
+            },
+            {
+                "label": "Contact",
+                "path": "/contact"
+            }
+        ],
+        "authLink": {
+            "label": "Log In",
+            "path": "/login"
+        }
+    },
+    "hero": {
+        "title": "Create your professional Resume with CV maker",
+        "subtitle": "Create your very own professional Resume and download it within 15 minutes.",
+        "buttonText": "Create your Resume"
+    },
+    "stats": {
+        "userCount": "68 Million",
+        "description": "Users have built their resumes here and successfully landed jobs in top MNCs.",
+        "successRate": "Over 95% of our users get selected in MNCs across the globe."
+    },
+    "features": [
+        {
+            "title": "Quick and easy resume builder",
+            "description": "With our online CV maker, it is simple for anyone to quickly create a professional resume. Enter your personal details and begin filling out your resume content. Finally, choose one of our 36 available resume layouts, and download your resume."
+        },
+        {
+            "title": "More likely to land a job",
+            "description": "With a representative and professional resume, you will stand out amongst all other applicants. You are probably more likely to be invited to an interview with a professional Resume."
+        },
+        {
+            "title": "Organize your applications",
+            "description": "Often, it is important to be able to tailor your resume based on the job you wish to apply for. With CV maker you can create and manage several different resumes in an organized way."
+        }
+    ],
+    "reviews": [
+        {
+            "name": "Sarah J.",
+            "comment": "Changed my career! The layouts are stunning and the builder is so intuitive.",
+            "company": "Google"
+        },
+        {
+            "name": "Michael R.",
+            "comment": "I got selected at an MNC within a week of using this CV maker. Highly recommended!",
+            "company": "Microsoft"
+        },
+        {
+            "name": "Arjun P.",
+            "comment": "The professional look and ease of use are miles ahead of other tools.",
+            "company": "Amazon"
+        }
+    ],
+    "applySuccessfully": {
+        "title": "Apply Successfully",
+        "description": "With the help of CV maker, your professional resume is always within reach. Whether you decide to quickly and easily create it yourself with our CV maker, or having it made bespoke by our professional - your resume always stands out from the crowd.",
+        "cards": [
+            {
+                "title": "Create your own professional resume",
+                "points": [
+                    "Making a professional resume is a piece of cake with our CV maker with lots and more.",
+                    "Create your own professional resume that stands out in just 15 minutes.",
+                    "Your documents stored in your own personal and safe account hub. This allows you to both edit and download your resume whenever, and wherever, you request.",
+                    "Gain access to creating strong application letters, matching them with your personal resume.",
+                    "Access all functionalities for 7 days for only $1.95, then increases to only $24.95 mo."
+                ]
+            },
+            {
+                "title": "Have your resume either created or optimized",
+                "points": [
+                    "Do you find it difficult to create your own resume? Or are you just too busy and don't have the time? Then have your CV created or optimized by a professional.",
+                    "Send us your current resume (or experiments) and we will make your resume in one of our professional templates.",
+                    "Your resume is professionally, powerfully and clearly rewritten.",
+                    "Within 24-48 hours, your resume is professionally rewritten or optimized, and available to download from your personal account.",
+                    "Your CV maker account allows you to create, copy and your generated resume, and makes use of all other functionalities available."
+                ]
+            }
+        ]
+    },
+    "footerCTA": {
+        "text": "More than 112.872 users have already made their resume",
+        "subtext": "With CV maker, you can quickly and easily create a distinctive and professional resume within 15 minutes.",
+        "button": "Create your Resume"
+    },
+    "footer": {
+        "columns": [
+            {
+                "title": "Service",
+                "links": [
+                    "Create resume",
+                    "Resume Writing Service",
+                    "Resume optimization service",
+                    "FAQ"
+                ]
+            },
+            {
+                "title": "Support",
+                "links": [
+                    {
+                        "label": "About us",
+                        "path": "/about-us"
+                    },
+                    "Contact"
+                ]
+            },
+            {
+                "title": "CVmaker",
+                "links": [
+                    {
+                        "label": "Privacy and Cookie Statement",
+                        "path": "/privacy"
+                    },
+                    "Terms and Conditions",
+                    "Pricing"
+                ]
+            },
+            {
+                "title": "Blog",
+                "links": [
+                    {
+                        "label": "How to write a...",
+                        "path": "/blog/how-to-write-a-successful-business-consulting-resume"
+                    },
+                    {
+                        "label": "Art Teacher Resume...",
+                        "path": "/blog/art-teacher-resume"
+                    },
+                    {
+                        "label": "Special education...",
+                        "path": "/blog/special-education"
+                    }
+                ]
+            }
+        ],
+        "bottomLinks": [
+            "Privacy and Cookie Statement",
+            "Terms and Conditions"
+        ],
+        "copyright": "2023 © CVmaker.com"
+    },
+    "blogPosts": [
+        {
+            "slug": "how-to-write-a-successful-business-consulting-resume",
+            "title": "How to Write a Successful Business Consulting Resume: Tips that Work in 2026",
+            "date": "24 December 2026",
+            "content": [
+                "Increase the efficiency and profitability of your clients' business in record-return for you. But do you know how to write a winning business consultant resume?",
+                "Consultant resumes are literally a dime a dozen. So if you don't make yours jump out at recruiters right away, it won't get noticed.",
+                "Business consulting is a diverse field, and even the search for success, you must intentionally have your resume be it. Section is immediately clearance your value.",
+                "Wait! Don't worry, we've got you covered.",
+                "This article shows you how to grab a recruiter's attention and reach the first phase to find you a member. We show you how to get it right using top-ranking samples and examples, keywords, format and more.",
+                "For instance -",
+                "- Business consultant resume examples",
+                "- Family business consultant resume example",
+                "- Sample resume for a business consultant"
+            ],
+            "resumeExample": {
+                "title": "Business Consultant: Resume Example",
+                "userName": "Jolly Harris",
+                "userRole": "Senior Business Consultant",
+                "phone": "+1-123-456-7890",
+                "email": "jolly.harris@example.com",
+                "address": "2810 Union Road, Cedar Park, 78613 Texas, TX",
+                "objective": "Multifaceted and highly experienced business consultant with 15 years specializing in HR, finance and data analysis for sectors to lead and coordinate results to maximize achievement through management. The upgraded the with 500+ employees and reduced HR process time from 20 to 12 days per employee, 10 employees saved 800 hours/per person on their salary calculations (over 8000 hours in total!) by Cloud.",
+                "experience": [
+                    {
+                        "role": "Senior Consultant - HR",
+                        "company": "Capgemini",
+                        "period": "Jan 2020 - Present",
+                        "points": [
+                            "Analyzed internal hiring and staffing data",
+                            "Introduced a cloud-based recruitment software",
+                            "Put together support team for new software upgrade",
+                            "Examined new specifications and distributed to HR",
+                            "Evaluated quotations from software providers",
+                            "Created reports and presentations for management teams",
+                            "Successfully introduced automated employment system",
+                            "Managed HR and payroll data for over 500 staff",
+                            "Lowered recruitment cost from $10,000 to $6,000",
+                            "Managed documentation related to employee benefits",
+                            "Awarded 'Consultant of the Year' for highly automated transition"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "slug": "art-teacher-resume",
+            "title": "Art Teacher Resume Examples & Writing Guide 2026",
+            "date": "23 December 2025",
+            "category": "Resume writing",
+            "content": [
+                "Creativity and an ability to articulate theory, practice, and history of Art are just a few of the qualities educators are seeking today. While teaching Art is a specialty position, trying to land that perfect job can be challenging...",
+                "You need to showcase your ability to inspire students and manage a classroom effectively."
+            ]
+        },
+        {
+            "slug": "special-education",
+            "title": "Special Education Teacher Resume Examples & Writing Guide 2026",
+            "date": "23 December 2025",
+            "category": "Resume writing",
+            "content": [
+                "Patience, compassion, and exceptional communication skills are crucial for becoming a special education teacher. While there will always be a need for qualified and experienced teachers of special education, landing that perfect job requires a standout resume.",
+                "Here is how you can highlight your specialized skills and certifications."
+            ]
+        }
+    ],
+    "contactPage": {
+        "header": {
+            "title": "Contact us",
+            "subtitle": "Our users are very satisfied about our excellent support"
+        },
+        "cards": [
+            {
+                "icon": "mail",
+                "title": "Contact Form",
+                "description": "Submit your question via our contact form, we usually respond within a day.",
+                "buttonText": "Contact us",
+                "footer": "RESPONSE WITHIN 1 DAY"
+            },
+            {
+                "icon": "lifebuoy",
+                "title": "Cancel subscription",
+                "description": "Get your subscription cancelled without waiting for our support, using this simple form.",
+                "buttonText": "Cancel subscription",
+                "footer": "PROCESSED IMMEDIATELY"
+            }
+        ],
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "subtitle": "Find answers to frequently asked questions easily below.",
+            "questions": [
+                {
+                    "question": "Can I also create a cover letter?",
+                    "answer": "Yes, you can create a professional cover letter that matches your resume design perfectly."
+                },
+                {
+                    "question": "Can I download my Resume in another language (e.g. French)?",
+                    "answer": "Yes, our builder supports multiple languages. You can change the language settings in the editor."
+                },
+                {
+                    "question": "How do I cancel my CVmaker.com account and subscription?",
+                    "answer": "You can cancel your subscription easily through your account settings or by using the 'Cancel subscription' form on this page."
+                },
+                {
+                    "question": "Does it cost money to use CVmaker.com?",
+                    "answer": "You can create a resume for free, but downloading it or using premium features may require a paid subscription."
+                },
+                {
+                    "question": "Can I hide an item on my Resume?",
+                    "answer": "Yes, if you leave a field empty, it will automatically be hidden on your resume. You can also toggle visibility for entire sections."
+                },
+                {
+                    "question": "Can I put a section on the next page (in PDF)?",
+                    "answer": "The layout is automatically optimized, but you can use the 'Page Break' feature to force a section to the next page."
+                },
+                {
+                    "question": "Are the items sorted chronologically?",
+                    "answer": "By default, items like work experience and education are sorted reverse-chronologically (newest first), which is the standard."
+                },
+                {
+                    "question": "Can I sort the items?",
+                    "answer": "Yes, you can manually reorder items within a section using the drag-and-drop handles in the editor."
+                },
+                {
+                    "question": "Can I edit my Resume?",
+                    "answer": "Absolutely! You can log in to your account at any time to edit, update, or create new versions of your resume."
+                },
+                {
+                    "question": "Is my Resume also available for download in Word?",
+                    "answer": "Currently, we prioritize PDF for consistent formatting across devices, but we are working on a Word export feature."
+                },
+                {
+                    "question": "Can I add a picture to my Resume?",
+                    "answer": "Yes, most of our templates support a profile picture. You can upload and crop it directly in the editor."
+                }
+            ]
+        }
+    }
+}
