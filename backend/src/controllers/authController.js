@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const register = async (req, res) => {
     try {
         console.log('Registration request received:', req.body);
-        const { firstName, lastName, email, mobileNumber, password } = req.body;
+        const { firstName, lastName, email, mobileNumber, password, dob, gender } = req.body;
 
         const existingUser = await prisma.user.findUnique({ where: { email } });
         if (existingUser) {
@@ -20,6 +20,8 @@ const register = async (req, res) => {
                 lastName,
                 email,
                 mobileNumber,
+                dob,
+                gender,
                 password: hashedPassword,
             },
         });
@@ -48,7 +50,9 @@ const login = async (req, res) => {
                 email: user.email,
                 firstName: user.firstName,
                 lastName: user.lastName,
-                mobileNumber: user.mobileNumber
+                mobileNumber: user.mobileNumber,
+                dob: user.dob,
+                gender: user.gender
             }
         });
     } catch (error) {
@@ -56,17 +60,30 @@ const login = async (req, res) => {
     }
 };
 
-const getMe = async (req, res) => {
+const updateProfile = async (req, res) => {
     try {
-        const user = await prisma.user.findUnique({
-            where: { id: req.user.userId },
-            select: { id: true, email: true, firstName: true, lastName: true, mobileNumber: true }
+        const { firstName, lastName, mobileNumber, dob, gender } = req.body;
+        const userId = req.user.userId;
+
+        const updatedUser = await prisma.user.update({
+            where: { id: userId },
+            data: { firstName, lastName, mobileNumber, dob, gender },
+            select: {
+                id: true,
+                email: true,
+                firstName: true,
+                lastName: true,
+                mobileNumber: true,
+                dob: true,
+                gender: true,
+                avatar: true
+            }
         });
-        if (!user) return res.status(404).json({ message: 'User not found' });
-        res.json(user);
+
+        res.json({ message: 'Profile updated successfully', user: updatedUser });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-module.exports = { register, login, getMe };
+module.exports = { register, login, updateProfile };

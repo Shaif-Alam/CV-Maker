@@ -19,7 +19,7 @@ const Pricing = () => {
                 </div>
 
                 {/* Apply Successfully Section (Pricing Options) */}
-                <section className="apply-section" style={{ backgroundColor: '#f8fafc', paddingBottom: '8rem', marginTop: '-4rem' }}>
+                <section className="apply-section" style={{ backgroundColor: 'var(--theme-bg)', paddingBottom: '8rem', marginTop: '-4rem' }}>
                     <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
                         <div className="apply-cards">
                             {applySuccessfully.cards.map((card, index) => (
@@ -32,12 +32,12 @@ const Pricing = () => {
                                     position: 'relative',
                                     textAlign: 'left'
                                 }}>
-                                    <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', height: '60px', color: '#1e293b' }}>
+                                    <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', height: '60px', color: 'var(--theme-text)' }}>
                                         {card.title}
                                     </h3>
                                     <ul style={{ flex: 1, padding: 0 }}>
                                         {card.points.map((point, pIndex) => (
-                                            <li key={pIndex} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.25rem', fontSize: '1rem', color: '#475569' }}>
+                                            <li key={pIndex} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.25rem', fontSize: '1rem', color: 'var(--theme-text-muted)' }}>
                                                 <CheckCircle size={20} color="var(--accent-solid)" fill="var(--accent-solid)" style={{ minWidth: '20px', color: 'white' }} />
                                                 <span>{point}</span>
                                             </li>

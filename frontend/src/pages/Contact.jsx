@@ -16,7 +16,7 @@ const Contact = () => {
         <div className="page-wrapper">
             <Header />
 
-            <main style={{ backgroundColor: '#f8fafc', minHeight: '100vh', paddingBottom: '4rem' }}>
+            <main style={{ backgroundColor: 'var(--theme-bg)', minHeight: '100vh', paddingBottom: '4rem' }}>
                 {/* Hero Ribbon */}
                 <div className="login-hero-ribbon">
                     <h1>{contactPage.header.title}</h1>
@@ -46,12 +46,12 @@ const Contact = () => {
                             flexDirection: 'column',
                             alignItems: 'center'
                         }}>
-                            <div style={{ color: '#4b5563', marginBottom: '1.5rem' }}>
+                            <div style={{ color: 'var(--theme-text-muted)', marginBottom: '1.5rem' }}>
                                 {card.icon === 'mail' && <Mail size={48} strokeWidth={1} />}
                                 {card.icon === 'lifebuoy' && <LifeBuoy size={48} strokeWidth={1} style={{ color: 'var(--accent-solid)' }} />}
                             </div>
-                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>{card.title}</h3>
-                            <p style={{ color: '#666', marginBottom: '2rem', lineHeight: '1.6', fontSize: '0.95rem' }}>{card.description}</p>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--theme-text)' }}>{card.title}</h3>
+                            <p style={{ color: 'var(--theme-text-muted)', marginBottom: '2rem', lineHeight: '1.6', fontSize: '0.95rem' }}>{card.description}</p>
                             <button className="btn-primary" style={{
                                 width: '100%',
                                 marginBottom: '1.5rem',
@@ -70,15 +70,16 @@ const Contact = () => {
                 {/* FAQ Section */}
                 <div style={{ maxWidth: '800px', margin: '6rem auto 0', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 style={{ fontSize: '2rem', color: '#1f2937', marginBottom: '0.5rem', fontWeight: 'bold' }}>{contactPage.faq.title}</h2>
-                        <p style={{ color: '#666' }}>{contactPage.faq.subtitle}</p>
+                        <h2 style={{ fontSize: '2rem', color: 'var(--theme-text)', marginBottom: '0.5rem', fontWeight: 'bold' }}>{contactPage.faq.title}</h2>
+                        <p style={{ color: 'var(--theme-text-muted)' }}>{contactPage.faq.subtitle}</p>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {contactPage.faq.questions.map((faq, index) => (
                             <div key={index} style={{
-                                backgroundColor: 'white',
+                                backgroundColor: 'var(--theme-card-bg)',
                                 borderRadius: '4px',
+                                border: '1px solid var(--theme-border)',
                                 boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
                                 overflow: 'hidden'
                             }}>
@@ -90,19 +91,19 @@ const Contact = () => {
                                         display: 'flex',
                                         alignItems: 'center',
                                         textAlign: 'left',
-                                        background: 'white',
+                                        background: 'var(--theme-card-bg)',
                                         border: 'none',
                                         cursor: 'pointer',
                                         fontSize: '1rem',
                                         fontWeight: '500',
-                                        color: '#333'
+                                        color: 'var(--theme-text)'
                                     }}
                                 >
                                     <span style={{ marginRight: '1rem', fontWeight: 'bold' }}>&gt;</span>
                                     {faq.question}
                                 </button>
                                 {openFaqIndex === index && (
-                                    <div style={{ padding: '0 1.5rem 1.5rem 2.5rem', color: '#4b5563', lineHeight: '1.6' }}>
+                                    <div style={{ padding: '0 1.5rem 1.5rem 2.5rem', color: 'var(--theme-text-muted)', lineHeight: '1.6' }}>
                                         {faq.answer}
                                     </div>
                                 )}

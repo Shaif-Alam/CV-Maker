@@ -1,30 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Menu, X, User, Settings, LogOut, Mail, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, User, Settings, LogOut, Mail, Phone, ChevronDown, Sun, Moon } from 'lucide-react';
 import homeData from '../data/homeContent.json';
+import { useTheme } from '../context/ThemeContext';
 
 const Header = () => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
     const { header } = homeData;
+    const { theme, toggleTheme } = useTheme();
 
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || 'null'));
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
     const isAuthenticated = !!localStorage.getItem('token');
-
-    React.useEffect(() => {
-        if (isAuthenticated && (!user?.lastName || !user?.mobileNumber)) {
-            axios.get('http://localhost:5000/api/auth/me', {
-                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-            }).then(res => {
-                const updatedUser = res.data;
-                localStorage.setItem('user', JSON.stringify(updatedUser));
-                setUser(updatedUser);
-            }).catch(err => {
-                console.error('Failed to fetch user profile:', err);
-            });
-        }
-    }, [isAuthenticated, user]);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -113,7 +101,7 @@ const Header = () => {
                                     {/* Menu Items */}
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                                         <button
-                                            onClick={() => { navigate('/settings'); setShowDropdown(false); }}
+                                            onClick={() => { navigate('/profile'); setShowDropdown(false); }}
                                             className="dropdown-item"
                                             style={{
                                                 display: 'flex',
@@ -131,8 +119,75 @@ const Header = () => {
                                                 transition: 'background 0.2s'
                                             }}
                                         >
-                                            <Settings size={18} /> Settings
+                                            <User size={18} /> Edit Profile
                                         </button>
+
+                                        {/* Theme Toggle Section */}
+                                        <div style={{ padding: '0.75rem' }}>
+                                            <div style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'space-between',
+                                                fontSize: '0.9rem',
+                                                color: '#4a5568',
+                                                marginBottom: '0.5rem'
+                                            }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                                    <Settings size={18} />
+                                                    <span>Appearance</span>
+                                                </div>
+                                            </div>
+                                            <div style={{
+                                                display: 'flex',
+                                                background: '#f1f5f9',
+                                                padding: '4px',
+                                                borderRadius: '8px',
+                                                gap: '4px'
+                                            }}>
+                                                <button
+                                                    onClick={() => toggleTheme('light')}
+                                                    style={{
+                                                        flex: 1,
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        gap: '6px',
+                                                        padding: '6px',
+                                                        borderRadius: '6px',
+                                                        border: 'none',
+                                                        fontSize: '0.8rem',
+                                                        cursor: 'pointer',
+                                                        background: theme === 'light' ? 'white' : 'transparent',
+                                                        color: theme === 'light' ? 'var(--accent-solid)' : '#64748b',
+                                                        boxShadow: theme === 'light' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                                                        transition: 'all 0.2s'
+                                                    }}
+                                                >
+                                                    <Sun size={14} /> Light
+                                                </button>
+                                                <button
+                                                    onClick={() => toggleTheme('dark')}
+                                                    style={{
+                                                        flex: 1,
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        gap: '6px',
+                                                        padding: '6px',
+                                                        borderRadius: '6px',
+                                                        border: 'none',
+                                                        fontSize: '0.8rem',
+                                                        cursor: 'pointer',
+                                                        background: theme === 'dark' ? 'white' : 'transparent',
+                                                        color: theme === 'dark' ? 'var(--accent-solid)' : '#64748b',
+                                                        boxShadow: theme === 'dark' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                                                        transition: 'all 0.2s'
+                                                    }}
+                                                >
+                                                    <Moon size={14} /> Dark
+                                                </button>
+                                            </div>
+                                        </div>
                                         <button
                                             onClick={handleLogout}
                                             className="dropdown-item logout"
@@ -189,11 +244,8 @@ const Header = () => {
                     {isAuthenticated ? (
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginTop: '2rem', padding: '1.5rem', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '12px' }}>
                             <div style={{ textAlign: 'center' }}>
-                                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'white', marginBottom: '0.25rem' }}>
-                                    {user?.firstName} {user?.lastName || ''}
-                                </div>
-                                <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.9)', marginBottom: '0.25rem' }}>{user?.email}</div>
-                                {user?.mobileNumber && <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>{user?.mobileNumber}</div>}
+                                <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'white' }}>{user?.email}</div>
+                                <div style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>{user?.mobileNumber}</div>
                             </div>
                             <button
                                 className="btn btn-primary"

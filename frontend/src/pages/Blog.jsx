@@ -23,7 +23,7 @@ const Blog = () => {
         <div className="page-wrapper">
             <Header />
 
-            <main style={{ backgroundColor: '#f8fafc', minHeight: '100vh', paddingBottom: '4rem' }}>
+            <main style={{ backgroundColor: 'var(--theme-bg)', minHeight: '100vh', paddingBottom: '4rem' }}>
                 {/* Blog Header Ribbon */}
                 <div style={{
                     backgroundColor: '#10b981', // Green color
@@ -41,8 +41,8 @@ const Blog = () => {
                         <button
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             style={{
-                                background: 'white',
-                                border: 'none',
+                                background: 'var(--theme-card-bg)',
+                                border: '1px solid var(--theme-border)',
                                 borderRadius: '20px',
                                 padding: '0.5rem 1.5rem',
                                 display: 'inline-flex',
@@ -50,7 +50,7 @@ const Blog = () => {
                                 gap: '0.5rem',
                                 cursor: 'pointer',
                                 fontSize: '0.9rem',
-                                color: '#333',
+                                color: 'var(--theme-text)',
                                 fontWeight: '500'
                             }}
                         >
@@ -65,8 +65,9 @@ const Blog = () => {
                                 left: '50%',
                                 transform: 'translateX(-20%)',
                                 marginTop: '0.5rem',
-                                backgroundColor: 'white',
+                                backgroundColor: 'var(--theme-card-bg)',
                                 borderRadius: '8px',
+                                border: '1px solid var(--theme-border)',
                                 boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
                                 padding: '0.5rem 0',
                                 zIndex: 10,
@@ -102,7 +103,7 @@ const Blog = () => {
                 <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
                     {blogPosts.map((post, index) => (
                         <div key={index} style={{
-                            backgroundColor: 'white',
+                            backgroundColor: 'var(--theme-card-bg)',
                             borderRadius: '8px',
                             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                             marginBottom: '2rem',
@@ -129,15 +130,15 @@ const Blog = () => {
 
                             {/* Content */}
                             <div style={{ width: '65%', padding: '2rem', display: 'flex', flexDirection: 'column' }}>
-                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1e293b' }}>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem', color: 'var(--theme-text)' }}>
                                     {post.title}
                                 </h2>
-                                <div style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '1rem' }}>
+                                <div style={{ fontSize: '0.9rem', color: 'var(--theme-text-muted)', marginBottom: '1rem' }}>
                                     Resume writing | {post.date}
                                 </div>
                                 <p style={{
                                     fontSize: '1rem',
-                                    color: '#475569',
+                                    color: 'var(--theme-text)',
                                     marginBottom: 'auto',
                                     lineHeight: '1.6',
                                     display: '-webkit-box',

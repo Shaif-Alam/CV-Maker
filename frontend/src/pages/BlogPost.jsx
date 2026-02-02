@@ -19,7 +19,7 @@ const BlogPost = () => {
         return (
             <div className="blog-page">
                 <Header />
-                <div style={{ padding: '8rem 4rem', textAlign: 'center' }}>
+                <div style={{ padding: '8rem 4rem', textAlign: 'center', backgroundColor: 'var(--theme-bg)', color: 'var(--theme-text)' }}>
                     <h2>Article not found</h2>
                     <button className="btn btn-primary" onClick={() => navigate('/')}>Back to Home</button>
                 </div>

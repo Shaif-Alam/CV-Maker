@@ -14,6 +14,8 @@ model User {
   firstName        String
   lastName         String
   mobileNumber     String?
+  dob              String?
+  gender           String?
   isEmailVerified  Boolean    @default(false)
   isMobileVerified Boolean    @default(false)
   googleId         String?    @unique

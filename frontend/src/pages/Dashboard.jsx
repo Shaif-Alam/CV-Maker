@@ -23,7 +23,7 @@ const Dashboard = () => {
     }, [navigate]);
 
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8f9fa' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--theme-hover)' }}>
             <Header />
 
             <main style={{ flex: 1, padding: '4rem 2rem' }}>
@@ -31,8 +31,8 @@ const Dashboard = () => {
 
                     {/* Hero Section */}
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h1 style={{ fontSize: '3rem', fontWeight: '800', color: '#1f2937', marginBottom: '1rem' }}>Your Success is Only One Step Away</h1>
-                        <p style={{ fontSize: '1.2rem', color: '#6b7280', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
+                        <h1 style={{ fontSize: '3rem', fontWeight: '800', color: 'var(--theme-text)', marginBottom: '1rem' }}>Your Success is Only One Step Away</h1>
+                        <p style={{ fontSize: '1.2rem', color: 'var(--theme-text-muted)', maxWidth: '700px', margin: '0 auto', lineHeight: '1.6' }}>
                             Your next professional breakthrough is waiting. Don't let someone else fill your dream position—take action today and build your future.
                         </p>
                     </div>
@@ -42,7 +42,7 @@ const Dashboard = () => {
                         <div
                             onClick={() => navigate('/builder')}
                             style={{
-                                backgroundColor: 'white', padding: '3.5rem 2.5rem', borderRadius: '24px',
+                                backgroundColor: 'var(--theme-card-bg)', padding: '3.5rem 2.5rem', borderRadius: '24px',
                                 textAlign: 'center', cursor: 'pointer', transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
                                 border: '2px solid transparent', position: 'relative', overflow: 'hidden'
@@ -61,8 +61,8 @@ const Dashboard = () => {
                             <div style={{ backgroundColor: '#d1fae5', color: '#10b981', width: '90px', height: '90px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem' }}>
                                 <User size={45} />
                             </div>
-                            <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '1rem', color: '#111827' }}>Create for Myself</h2>
-                            <p style={{ color: '#6b7280', lineHeight: '1.6', fontSize: '1.05rem' }}>Land your next role with a high-impact, professional resume.</p>
+                            <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '1rem', color: 'var(--theme-text)' }}>Create for Myself</h2>
+                            <p style={{ color: 'var(--theme-text-muted)', lineHeight: '1.6', fontSize: '1.05rem' }}>Land your next role with a high-impact, professional resume.</p>
                             <div style={{ marginTop: '2rem', color: '#10b981', fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
                                 Get Started <PlusCircle size={20} />
                             </div>
@@ -72,7 +72,7 @@ const Dashboard = () => {
                         <div
                             onClick={() => navigate('/builder')}
                             style={{
-                                backgroundColor: 'white', padding: '3.5rem 2.5rem', borderRadius: '24px',
+                                backgroundColor: 'var(--theme-card-bg)', padding: '3.5rem 2.5rem', borderRadius: '24px',
                                 textAlign: 'center', cursor: 'pointer', transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
                                 border: '2px solid transparent', position: 'relative', overflow: 'hidden'
@@ -91,8 +91,8 @@ const Dashboard = () => {
                             <div style={{ backgroundColor: '#e0e7ff', color: '#6366f1', width: '90px', height: '90px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem' }}>
                                 <Users size={45} />
                             </div>
-                            <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '1rem', color: '#111827' }}>Someone Else</h2>
-                            <p style={{ color: '#6b7280', lineHeight: '1.6', fontSize: '1.05rem' }}>Help a family member or friend create their perfect resume.</p>
+                            <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '1rem', color: 'var(--theme-text)' }}>Someone Else</h2>
+                            <p style={{ color: 'var(--theme-text-muted)', lineHeight: '1.6', fontSize: '1.05rem' }}>Help a family member or friend create their perfect resume.</p>
                             <div style={{ marginTop: '2rem', color: '#6366f1', fontWeight: '700', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
                                 Help them out <PlusCircle size={20} />
                             </div>
@@ -102,7 +102,7 @@ const Dashboard = () => {
                     {/* My Resumes List */}
                     <div style={{ borderTop: '1px solid #e5e7eb', paddingTop: '4rem' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
-                            <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#111827', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                            <h2 style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--theme-text)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                                 <FileText color="#10b981" /> My Recent Resumes
                             </h2>
                             {cvs.length > 0 && <span style={{ color: '#10b981', fontWeight: '600' }}>{cvs.length} total</span>}
@@ -112,13 +112,13 @@ const Dashboard = () => {
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
                                 {cvs.map(cv => (
                                     <div key={cv.id} style={{
-                                        backgroundColor: 'white', padding: '1.5rem', borderRadius: '16px',
+                                        backgroundColor: 'var(--theme-card-bg)', padding: '1.5rem', borderRadius: '16px',
                                         boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', display: 'flex', flexDirection: 'column', gap: '1rem'
                                     }}>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                             <div>
-                                                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#1f2937' }}>{cv.title || 'Untitled Resume'}</h3>
-                                                <p style={{ color: '#9ca3af', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                                                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--theme-text)' }}>{cv.title || 'Untitled Resume'}</h3>
+                                                <p style={{ color: 'var(--theme-text-muted)', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                                                     <Clock size={14} /> Updated {new Date(cv.updatedAt).toLocaleDateString()}
                                                 </p>
                                             </div>
@@ -151,10 +151,10 @@ const Dashboard = () => {
                                 ))}
                             </div>
                         ) : (
-                            <div style={{ textAlign: 'center', padding: '4rem', backgroundColor: 'white', borderRadius: '24px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
+                            <div style={{ textAlign: 'center', padding: '4rem', backgroundColor: 'var(--theme-card-bg)', borderRadius: '24px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
                                 <div style={{ color: '#d1d5db', marginBottom: '1.5rem' }}><FileText size={60} style={{ margin: '0 auto' }} /></div>
-                                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#374151', marginBottom: '0.5rem' }}>No resumes found</h3>
-                                <p style={{ color: '#6b7280', marginBottom: '2rem' }}>You haven't created any resumes yet. Start your journey today!</p>
+                                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--theme-text)', marginBottom: '0.5rem' }}>No resumes found</h3>
+                                <p style={{ color: 'var(--theme-text-muted)', marginBottom: '2rem' }}>You haven't created any resumes yet. Start your journey today!</p>
                                 <button onClick={() => navigate('/builder')} style={{ padding: '0.75rem 2rem', backgroundColor: '#10b981', color: 'white', border: 'none', borderRadius: '50px', fontWeight: '700', cursor: 'pointer' }}>
                                     + Create Your First Resume
                                 </button>

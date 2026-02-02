@@ -16,13 +16,13 @@ const Privacy = () => {
                 <p>Last Updated November 17, 2020</p>
             </div>
 
-            <section className="blog-container" style={{ display: 'block', maxWidth: '900px', background: 'white', marginTop: '-3rem', borderRadius: '12px', padding: '4rem', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-                <div className="privacy-content" style={{ color: '#334155', lineHeight: '1.8' }}>
+            <section className="blog-container" style={{ display: 'block', maxWidth: '900px', backgroundColor: 'var(--theme-card-bg)', border: '1px solid var(--theme-border)', marginTop: '-3rem', borderRadius: '12px', padding: '4rem', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+                <div className="privacy-content" style={{ color: 'var(--theme-text)', lineHeight: '1.8' }}>
                     <p style={{ fontWeight: '600', color: 'var(--accent-solid)', marginBottom: '1.5rem' }}>
                         Please read our privacy and cookie statement carefully.
                     </p>
 
-                    <h2 style={{ fontSize: '1.5rem', color: '#1e293b', marginTop: '2.5rem', marginBottom: '1rem', borderBottom: '2px solid #f1f5f9', paddingBottom: '0.5rem' }}>
+                    <h2 style={{ fontSize: '1.5rem', color: 'var(--theme-text)', marginTop: '2.5rem', marginBottom: '1rem', borderBottom: '2px solid var(--theme-border)', paddingBottom: '0.5rem' }}>
                         PRIVACY AND COOKIE STATEMENT
                     </h2>
 
@@ -38,7 +38,7 @@ const Privacy = () => {
                         If you have any questions, please contact us at <a href="mailto:support@cvmaker.com" style={{ color: 'var(--accent-solid)', fontWeight: '600' }}>support@cvmaker.com</a>.
                     </p>
 
-                    <h3 style={{ fontSize: '1.25rem', color: '#1e293b', marginTop: '2rem', marginBottom: '1rem' }}>Data Controller</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--theme-text)', marginTop: '2rem', marginBottom: '1rem' }}>Data Controller</h3>
                     <p style={{ marginBottom: '1.5rem' }}>
                         Information provided, collected, or processed is controlled by:<br />
                         <strong>CVmaker BV</strong><br />
@@ -47,7 +47,7 @@ const Privacy = () => {
                         support@cvmaker.com
                     </p>
 
-                    <h3 style={{ fontSize: '1.25rem', color: '#1e293b', marginTop: '2rem', marginBottom: '1rem' }}>Information Collected</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--theme-text)', marginTop: '2rem', marginBottom: '1rem' }}>Information Collected</h3>
                     <p style={{ marginBottom: '1.5rem' }}>
                         “Personal Information” as used in this Privacy Policy, means any personal information that identifies, relates to, describes, is capable of being associated with, or could reasonably be linked, directly or indirectly with a particular user or household. We collect Personal Information that you voluntarily provide to us when you express an interest in obtaining information about our products and Services, when you participate in activities on the Site, or when you contact us.
                     </p>
@@ -65,7 +65,7 @@ const Privacy = () => {
 
                     {/* Content truncated for brevity in code editor, but I will include all sections from user request */}
 
-                    <h3 style={{ fontSize: '1.25rem', color: '#1e293b', marginTop: '2rem', marginBottom: '1rem' }}>Cookies</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--theme-text)', marginTop: '2rem', marginBottom: '1rem' }}>Cookies</h3>
                     <p style={{ marginBottom: '1.5rem' }}>
                         “Cookies” are small, simple text files that your computer or mobile device stores when you use any website, including our Site. We use various types of cookies, some of which are placed by Third Parties, to customize your experience on the Site, keep you logged into the Site, remember information you have entered, and to advertise products or services to you.
                     </p>
@@ -74,17 +74,17 @@ const Privacy = () => {
                         For more detailed information about the cookies we place or to change your cookie settings, please visit the <a href="#" style={{ color: 'var(--accent-solid)' }}>Cookies page</a>.
                     </p>
 
-                    <h3 style={{ fontSize: '1.25rem', color: '#1e293b', marginTop: '2rem', marginBottom: '1rem' }}>How We Use Your Information</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--theme-text)', marginTop: '2rem', marginBottom: '1rem' }}>How We Use Your Information</h3>
                     <p style={{ marginBottom: '1.5rem' }}>
                         We processing your Information for purposes based on legitimate business and commercial interests, the fulfillment of our agreement with you, compliance with our legal obligations, and/or your consent.
                     </p>
 
-                    <h3 style={{ fontSize: '1.25rem', color: '#1e293b', marginTop: '2rem', marginBottom: '1rem' }}>Security and Protection of Information</h3>
+                    <h3 style={{ fontSize: '1.25rem', color: 'var(--theme-text)', marginTop: '2rem', marginBottom: '1rem' }}>Security and Protection of Information</h3>
                     <p style={{ marginBottom: '2.5rem' }}>
                         CVmaker takes appropriate technical and organizational security measures to protect your personal data. Among other things, we use SSL technology to encrypt transmission of sensitive information or personal data to us, such as account passwords and other payment-related identifiable information.
                     </p>
 
-                    <div style={{ padding: '2rem', background: '#f8fafc', borderRadius: '8px', textAlign: 'center' }}>
+                    <div style={{ padding: '2rem', backgroundColor: 'var(--theme-hover)', borderRadius: '8px', textAlign: 'center' }}>
                         <p style={{ fontWeight: '600', marginBottom: '0.5rem' }}>Questions?</p>
                         <p>Contact us at <a href="mailto:support@cvmaker.com" style={{ color: 'var(--accent-solid)' }}>support@cvmaker.com</a></p>
                     </div>

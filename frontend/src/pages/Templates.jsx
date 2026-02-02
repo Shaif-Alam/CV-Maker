@@ -8,12 +8,12 @@ const Templates = () => {
     return (
         <div className="page-wrapper">
             <Header />
-            <main className="templates-container" style={{ padding: '80px 2rem 4rem', minHeight: 'calc(100vh - 400px)', backgroundColor: '#f9f9f9' }}>
+            <main className="templates-container" style={{ padding: '80px 2rem 4rem', minHeight: 'calc(100vh - 400px)', backgroundColor: 'var(--theme-hover)' }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-                    <h1 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '2.5rem', fontWeight: 'bold', color: '#333' }}>
+                    <h1 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--theme-text)' }}>
                         Professional Resume Templates
                     </h1>
-                    <p style={{ textAlign: 'center', marginBottom: '4rem', color: '#666', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto 4rem' }}>
+                    <p style={{ textAlign: 'center', marginBottom: '4rem', color: 'var(--theme-text-muted)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto 4rem' }}>
                         Choose one of our professionally designed templates to get started on your resume instantly.
                     </p>
 
@@ -32,13 +32,13 @@ const Templates = () => {
                                     overflow: 'hidden',
                                     transition: 'all 0.3s ease',
                                     cursor: 'pointer',
-                                    backgroundColor: 'white',
+                                    backgroundColor: 'var(--theme-card-bg)',
                                     boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01)',
                                     display: 'flex',
                                     flexDirection: 'column'
                                 }}>
                                     <div style={{
-                                        backgroundColor: '#eef2f6',
+                                        backgroundColor: 'var(--theme-hover)',
                                         padding: '1rem', // Reduced padding to fit more content
                                         display: 'flex',
                                         justifyContent: 'center',
@@ -63,9 +63,9 @@ const Templates = () => {
                                         </div>
                                     </div>
 
-                                    <div style={{ padding: '1.5rem', textAlign: 'center', backgroundColor: 'white', position: 'relative', zIndex: 10 }}>
-                                        <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>{template.name}</h3>
-                                        <p style={{ color: '#9ca3af', marginBottom: '1.5rem', fontSize: '0.9rem' }}>Professional & Clean</p>
+                                    <div style={{ padding: '1.5rem', textAlign: 'center', backgroundColor: 'var(--theme-card-bg)', position: 'relative', zIndex: 10 }}>
+                                        <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--theme-text)', marginBottom: '0.5rem' }}>{template.name}</h3>
+                                        <p style={{ color: 'var(--theme-text-muted)', marginBottom: '1.5rem', fontSize: '0.9rem' }}>Professional & Clean</p>
                                         <button
                                             className="btn"
                                             onClick={() => navigate('/builder', { state: { templateName: template.name } })}

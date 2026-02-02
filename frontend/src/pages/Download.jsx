@@ -42,13 +42,13 @@ const Download = () => {
     };
 
     return (
-        <div style={{ minHeight: '100vh', backgroundColor: '#f3f4f6', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ minHeight: '100vh', backgroundColor: 'var(--theme-bg)', display: 'flex', flexDirection: 'column' }}>
             <Header />
 
             <div style={{
-                backgroundColor: 'white',
+                backgroundColor: 'var(--theme-card-bg)',
                 padding: '1rem 2rem',
-                borderBottom: '1px solid #e5e7eb',
+                borderBottom: '1px solid var(--theme-border)',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -60,8 +60,8 @@ const Download = () => {
                     onClick={() => navigate('/builder', { state: { cvData, selectedTemplate } })} // Pass state back to edit
                     style={{
                         display: 'flex', alignItems: 'center', gap: '0.5rem',
-                        padding: '0.5rem 1rem', border: '1px solid #e5e7eb', borderRadius: '8px',
-                        backgroundColor: 'white', cursor: 'pointer', fontWeight: '500'
+                        padding: '0.5rem 1rem', border: '1px solid var(--theme-border)', borderRadius: '8px',
+                        backgroundColor: 'var(--theme-card-bg)', cursor: 'pointer', fontWeight: '500', color: 'var(--theme-text)'
                     }}
                 >
                     <ArrowLeft size={18} /> Back to Editor
@@ -112,14 +112,14 @@ const Download = () => {
                     >
                         <DownloadIcon size={22} /> Download Your Resume
                     </button>
-                    <p style={{ textAlign: 'center', color: '#6b7280', marginTop: '1rem', fontSize: '0.9rem' }}>
+                    <p style={{ textAlign: 'center', color: 'var(--theme-text-muted)', marginTop: '1rem', fontSize: '0.9rem' }}>
                         Ready to apply? Get your professional PDF now.
                     </p>
                 </div>
 
                 {/* Feedback Slider */}
                 <div style={{ width: '100%', overflow: 'hidden', padding: '2rem 0', marginBottom: '4rem' }}>
-                    <h3 style={{ textAlign: 'center', marginBottom: '2.5rem', fontSize: '1.4rem', fontWeight: 'bold', color: '#374151' }}>Success Stories</h3>
+                    <h3 style={{ textAlign: 'center', marginBottom: '2.5rem', fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--theme-text)' }}>Success Stories</h3>
                     <div className="marquee-container">
                         <div className="marquee-content">
                             {/* Triple for even smoother infinite scroll */}
@@ -130,8 +130,8 @@ const Download = () => {
                                             <Star key={starIdx} size={14} fill="#fbbf24" color="#fbbf24" />
                                         ))}
                                     </div>
-                                    <p style={{ fontSize: '0.85rem', color: '#4b5563', fontStyle: 'italic', marginBottom: '1rem', lineHeight: '1.5' }}>"{t.feedback}"</p>
-                                    <div style={{ fontWeight: '600', fontSize: '0.8rem', color: '#1f2937' }}>- {t.name}</div>
+                                    <p style={{ fontSize: '0.85rem', color: 'var(--theme-text-muted)', fontStyle: 'italic', marginBottom: '1rem', lineHeight: '1.5' }}>"{t.feedback}"</p>
+                                    <div style={{ fontWeight: '600', fontSize: '0.8rem', color: 'var(--theme-text)' }}>- {t.name}</div>
                                 </div>
                             ))}
                         </div>
@@ -163,13 +163,14 @@ const Download = () => {
                 .testimonial-card {
                     flex: 0 0 280px;
                     margin: 0 1rem;
-                    background: white;
-                    padding: 1.5rem;
-                    border-radius: 12px;
-                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                    background: 'var(--theme-card-bg)',
+                    padding: '1.5rem',
+                    border-radius: '12px',
+                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
                     white-space: normal;
-                    border: 1px solid #e5e7eb;
+                    border: 1px solid var(--theme-border);
                     transition: transform 0.3s;
+                    color: var(--theme-text);
                 }
                 .testimonial-card:hover {
                     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);

@@ -40,7 +40,7 @@ const Home = () => {
             <section className="stats-section">
                 <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Our Global Impact</h2>
-                    <p style={{ color: '#64748b', fontSize: '1.1rem', marginBottom: '3rem' }}>{stats.description}</p>
+                    <p style={{ color: 'var(--theme-text-muted)', fontSize: '1.1rem', marginBottom: '3rem' }}>{stats.description}</p>
 
                     <div className="stats-grid">
                         <div className="stat-item">
@@ -54,7 +54,7 @@ const Home = () => {
                             <p>MNC Selection Rate</p>
                         </div>
                     </div>
-                    <p style={{ marginTop: '3rem', fontWeight: '600', color: '#1e293b' }}>
+                    <p style={{ marginTop: '3rem', fontWeight: '600', color: 'var(--theme-text)' }}>
                         {stats.successRate}
                     </p>
                 </div>
@@ -82,7 +82,7 @@ const Home = () => {
             <section className="apply-section">
                 <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>{homeData.applySuccessfully.title}</h2>
-                    <p style={{ color: '#64748b', fontSize: '1.1rem', marginBottom: '4rem', maxWidth: '800px', margin: '0 auto 4rem' }}>
+                    <p style={{ color: 'var(--theme-text-muted)', fontSize: '1.1rem', marginBottom: '4rem', maxWidth: '800px', margin: '0 auto 4rem' }}>
                         {homeData.applySuccessfully.description}
                     </p>
 

@@ -11,6 +11,8 @@ const Register = () => {
         lastName: '',
         email: '',
         mobileNumber: '',
+        dob: '',
+        gender: '',
         password: '',
     });
     const [showPassword, setShowPassword] = useState(false);
@@ -76,6 +78,40 @@ const Register = () => {
                                 onChange={handleChange}
                                 required
                             />
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                            <div className="input-group-v2">
+                                <label>Date of Birth*</label>
+                                <input
+                                    name="dob"
+                                    type="date"
+                                    value={formData.dob}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group-v2">
+                                <label>Gender*</label>
+                                <select
+                                    name="gender"
+                                    value={formData.gender}
+                                    onChange={handleChange}
+                                    required
+                                    style={{
+                                        width: '100%',
+                                        padding: '0.85rem',
+                                        borderRadius: '6px',
+                                        border: '1px solid #e2e8f0',
+                                        fontSize: '1rem'
+                                    }}
+                                >
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div className="input-group-v2">

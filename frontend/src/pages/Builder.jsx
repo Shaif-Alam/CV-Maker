@@ -100,11 +100,11 @@ const Builder = () => {
     const ActiveTemplate = TEMPLATE_COMPONENTS[selectedTemplate] || TEMPLATE_COMPONENTS['Cambridge'];
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'var(--theme-hover)' }}>
             <Header />
 
             {/* Steps Navigation */}
-            <div style={{ backgroundColor: 'white', borderBottom: '1px solid #e5e7eb', padding: '1rem 0', position: 'sticky', top: '70px', zIndex: 40, boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
+            <div style={{ backgroundColor: 'var(--theme-card-bg)', borderBottom: '1px solid var(--theme-border)', padding: '1rem 0', position: 'sticky', top: '70px', zIndex: 40, boxShadow: '0 2px 5px rgba(0,0,0,0.05)' }}>
                 <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     {steps.map((step, index) => {
                         const Icon = step.icon;
@@ -128,7 +128,7 @@ const Builder = () => {
                                         width: '40px',
                                         height: '40px',
                                         borderRadius: '50%',
-                                        backgroundColor: isActive ? '#10b981' : (isCompleted ? '#d1fae5' : '#f3f4f6'), // Green for active
+                                        backgroundColor: isActive ? '#10b981' : (isCompleted ? '#d1fae5' : 'var(--theme-hover)'), // Green for active
                                         color: isActive ? 'white' : (isCompleted ? '#059669' : '#9ca3af'),
                                         display: 'flex',
                                         alignItems: 'center',
@@ -141,11 +141,11 @@ const Builder = () => {
                                     <span style={{
                                         fontSize: '0.85rem',
                                         fontWeight: isActive ? '600' : '500',
-                                        color: isActive ? '#10b981' : '#6b7280'
+                                        color: isActive ? '#10b981' : 'var(--theme-text-muted)'
                                     }}>{step.title}</span>
                                 </div>
                                 {index < steps.length - 1 && (
-                                    <div style={{ width: '60px', height: '2px', backgroundColor: isCompleted ? '#10b981' : '#e5e7eb' }}></div>
+                                    <div style={{ width: '60px', height: '2px', backgroundColor: isCompleted ? '#10b981' : 'var(--theme-border)' }}></div>
                                 )}
                             </div>
                         );
@@ -157,17 +157,17 @@ const Builder = () => {
             <div style={{ flex: 1, display: 'flex', justifyContent: 'center', width: '100%', padding: '2rem 1rem' }}>
                 {/* Centered Form Area */}
                 <div style={{ width: '100%', maxWidth: '900px' }}>
-                    <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+                    <div style={{ backgroundColor: 'var(--theme-card-bg)', padding: '2rem', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
 
                         {activeStep === 0 && (
                             <div className="fade-in">
-                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#1f2937' }}>Personal Details</h2>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: 'var(--theme-text)' }}>Personal Details</h2>
 
                                 {/* Photo Upload */}
                                 <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                     <div style={{
                                         width: '80px', height: '80px', borderRadius: '50%',
-                                        backgroundColor: '#f3f4f6', border: '1px solid #d1d5db',
+                                        backgroundColor: 'var(--theme-hover)', border: '1px solid var(--theme-border)',
                                         backgroundImage: cvData.personal.photo ? `url(${cvData.personal.photo})` : 'none',
                                         backgroundSize: 'cover', backgroundPosition: 'center',
                                         display: 'flex', justifyContent: 'center', alignItems: 'center'
@@ -177,8 +177,8 @@ const Builder = () => {
                                     <div>
                                         <label htmlFor="photo-upload" style={{
                                             display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                                            padding: '0.5rem 1rem', border: '1px solid #d1d5db', borderRadius: '6px',
-                                            cursor: 'pointer', fontSize: '0.9rem', fontWeight: '500', color: '#4b5563'
+                                            padding: '0.5rem 1rem', border: '1px solid var(--theme-border)', borderRadius: '6px',
+                                            cursor: 'pointer', fontSize: '0.9rem', fontWeight: '500', color: 'var(--theme-text)'
                                         }}>
                                             <Upload size={16} /> Upload Photo
                                         </label>
@@ -269,12 +269,12 @@ const Builder = () => {
 
                         {activeStep === 1 && (
                             <div className="fade-in">
-                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#1f2937' }}>Experience & Education</h2>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: 'var(--theme-text)' }}>Experience & Education</h2>
 
                                 <div style={{ marginBottom: '2rem' }}>
-                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Work Experience</h3>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--theme-text-muted)' }}>Work Experience</h3>
                                     {cvData.experience.map((exp, index) => (
-                                        <div key={index} style={{ marginBottom: '1.5rem', padding: '1.5rem', border: '1px solid #e5e7eb', borderRadius: '12px', position: 'relative', backgroundColor: '#fff' }}>
+                                        <div key={index} style={{ marginBottom: '1.5rem', padding: '1.5rem', border: '1px solid var(--theme-border)', borderRadius: '12px', position: 'relative', backgroundColor: 'var(--theme-bg)' }}>
                                             <button
                                                 onClick={() => handleRemoveItem('experience', index)}
                                                 style={{ position: 'absolute', top: '15px', right: '15px', color: '#ef4444', background: '#fee2e2', border: 'none', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '12px' }}
@@ -315,7 +315,7 @@ const Builder = () => {
                                                         onChange={(e) => handleInputChange('experience', 'isCurrent', e.target.checked, index)}
                                                         style={{ width: '18px', height: '18px', cursor: 'pointer' }}
                                                     />
-                                                    <label htmlFor={`exp-current-${index}`} style={{ fontSize: '0.9rem', color: '#4b5563', cursor: 'pointer' }}>I currently work here</label>
+                                                    <label htmlFor={`exp-current-${index}`} style={{ fontSize: '0.9rem', color: 'var(--theme-text)', cursor: 'pointer' }}>I currently work here</label>
                                                 </div>
 
                                                 <div style={{ gridColumn: '1 / -1' }}>
@@ -333,9 +333,9 @@ const Builder = () => {
                                 </div>
 
                                 <div>
-                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Education</h3>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--theme-text-muted)' }}>Education</h3>
                                     {cvData.education.map((edu, index) => (
-                                        <div key={index} style={{ marginBottom: '1.5rem', padding: '1.5rem', border: '1px solid #e5e7eb', borderRadius: '12px', position: 'relative', backgroundColor: '#fff' }}>
+                                        <div key={index} style={{ marginBottom: '1.5rem', padding: '1.5rem', border: '1px solid var(--theme-border)', borderRadius: '12px', position: 'relative', backgroundColor: 'var(--theme-bg)' }}>
                                             <button
                                                 onClick={() => handleRemoveItem('education', index)}
                                                 style={{ position: 'absolute', top: '15px', right: '15px', color: '#ef4444', background: '#fee2e2', border: 'none', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '12px' }}
@@ -376,7 +376,7 @@ const Builder = () => {
                                                         onChange={(e) => handleInputChange('education', 'isCurrent', e.target.checked, index)}
                                                         style={{ width: '18px', height: '18px', cursor: 'pointer' }}
                                                     />
-                                                    <label htmlFor={`edu-current-${index}`} style={{ fontSize: '0.9rem', color: '#4b5563', cursor: 'pointer' }}>I am currently studying here</label>
+                                                    <label htmlFor={`edu-current-${index}`} style={{ fontSize: '0.9rem', color: 'var(--theme-text)', cursor: 'pointer' }}>I am currently studying here</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -392,14 +392,14 @@ const Builder = () => {
 
                         {activeStep === 2 && (
                             <div className="fade-in">
-                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#1f2937' }}>Additional Details</h2>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: 'var(--theme-text)' }}>Additional Details</h2>
 
                                 {/* Languages */}
                                 <div style={{ marginBottom: '2rem' }}>
-                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Languages</h3>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--theme-text-muted)' }}>Languages</h3>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
                                         {cvData.languages.map((lang, index) => (
-                                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#f3f4f6', color: '#374151', padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.9rem' }}>
+                                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--theme-hover)', color: 'var(--theme-text)', padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.9rem' }}>
                                                 <span>{typeof lang === 'string' ? lang : `${lang.name} (${lang.level})`}</span>
                                                 <button onClick={() => handleRemoveItem('languages', index)} style={{ border: 'none', background: 'none', color: '#ef4444', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>✕</button>
                                             </div>
@@ -450,10 +450,10 @@ const Builder = () => {
 
                                 {/* Hobbies */}
                                 <div style={{ marginBottom: '2rem' }}>
-                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Hobbies & Interests</h3>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--theme-text-muted)' }}>Hobbies & Interests</h3>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
                                         {cvData.interests.map((hobby, index) => (
-                                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#f3f4f6', color: '#374151', padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.9rem' }}>
+                                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--theme-hover)', color: 'var(--theme-text)', padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.9rem' }}>
                                                 <span>{hobby}</span>
                                                 <button onClick={() => handleRemoveItem('interests', index)} style={{ border: 'none', background: 'none', color: '#ef4444', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>✕</button>
                                             </div>
@@ -490,7 +490,7 @@ const Builder = () => {
 
                                 {/* Social Links */}
                                 <div style={{ marginBottom: '2rem' }}>
-                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Social Links</h3>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: 'var(--theme-text-muted)' }}>Social Links</h3>
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                                         <div>
                                             <label className="label">LinkedIn</label>
@@ -543,8 +543,8 @@ const Builder = () => {
 
                         {activeStep === 3 && (
                             <div className="fade-in">
-                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#1f2937' }}>Choose Your Template</h2>
-                                <p style={{ color: '#6b7280', marginBottom: '2rem' }}>Every template here now reflects your information in real-time!</p>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: 'var(--theme-text)' }}>Choose Your Template</h2>
+                                <p style={{ color: 'var(--theme-text-muted)', marginBottom: '2rem' }}>Every template here now reflects your information in real-time!</p>
 
                                 <div style={{
                                     display: 'grid',
@@ -559,11 +559,11 @@ const Builder = () => {
                                             <div
                                                 key={template.id}
                                                 style={{
-                                                    border: isActive ? '3px solid #10b981' : '1px solid #e5e7eb',
+                                                    border: isActive ? '3px solid #10b981' : '1px solid var(--theme-border)',
                                                     borderRadius: '16px',
                                                     overflow: 'hidden',
                                                     cursor: 'pointer',
-                                                    backgroundColor: 'white',
+                                                    backgroundColor: 'var(--theme-card-bg)',
                                                     transition: 'all 0.3s ease',
                                                     boxShadow: isActive ? '0 10px 15px -3px rgba(16, 185, 129, 0.2)' : '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
                                                     display: 'flex',
@@ -574,7 +574,7 @@ const Builder = () => {
                                                 {/* Mini Preview Area */}
                                                 <div style={{
                                                     height: '350px',
-                                                    backgroundColor: '#f3f4f6',
+                                                    backgroundColor: 'var(--theme-hover)',
                                                     overflow: 'hidden',
                                                     position: 'relative',
                                                     display: 'flex',
@@ -597,7 +597,7 @@ const Builder = () => {
 
                                                 {/* Action Area */}
                                                 <div style={{ padding: '1rem', textAlign: 'center' }}>
-                                                    <div style={{ fontWeight: '700', fontSize: '1.1rem', marginBottom: '1rem', color: '#374151' }}>{template.name}</div>
+                                                    <div style={{ fontWeight: '700', fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--theme-text)' }}>{template.name}</div>
                                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                                         <button
                                                             onClick={(e) => {
@@ -631,7 +631,7 @@ const Builder = () => {
                         )}
 
                         {/* Navigation Buttons */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2rem', borderTop: '1px solid #e5e7eb', paddingTop: '1.5rem' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2rem', borderTop: '1px solid var(--theme-border)', paddingTop: '1.5rem' }}>
                             <button
                                 onClick={prevStep}
                                 disabled={activeStep === 0}
@@ -639,7 +639,7 @@ const Builder = () => {
                                     opacity: activeStep === 0 ? 0.5 : 1,
                                     cursor: activeStep === 0 ? 'not-allowed' : 'pointer',
                                     display: 'flex', alignItems: 'center', gap: '0.5rem',
-                                    padding: '0.75rem 1.5rem', borderRadius: '8px', border: '1px solid #e5e7eb', backgroundColor: 'white'
+                                    padding: '0.75rem 1.5rem', borderRadius: '8px', border: '1px solid var(--theme-border)', backgroundColor: 'var(--theme-card-bg)', color: 'var(--theme-text)'
                                 }}
                             >
                                 <ChevronLeft size={16} /> Previous
@@ -683,11 +683,11 @@ const Builder = () => {
             <Footer />
 
             <style>{`
-                .label { display: block; font-size: 0.9rem; font-weight: 500; color: #374151; marginBottom: 0.5rem; }
-                .input-field { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95rem; background-color: white; color: #333; }
+                .label { display: block; font-size: 0.9rem; font-weight: 500; color: var(--theme-text); marginBottom: 0.5rem; }
+                .input-field { width: 100%; padding: 0.75rem; border: 1px solid var(--theme-border); border-radius: 6px; font-size: 0.95rem; background-color: var(--theme-bg); color: var(--theme-text); }
                 .input-field:focus { outline: none; border-color: #10b981; ring: 2px solid rgba(16, 185, 129, 0.2); }
-                .btn-outline { background: white; border: 1px solid #d1d5db; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
-                .btn-outline:hover { background: #f9fafb; }
+                .btn-outline { background: var(--theme-card-bg); border: 1px solid var(--theme-border); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+                .btn-outline:hover { background: var(--theme-hover); }
             `}</style>
         </div>
     );

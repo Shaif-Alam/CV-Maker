@@ -18,12 +18,12 @@ const CvTemplates = () => {
     return (
         <div className="page-wrapper">
             <Header />
-            <main className="templates-container" style={{ padding: '80px 2rem 4rem', minHeight: 'calc(100vh - 400px)' }}>
+            <main className="templates-container" style={{ padding: '80px 2rem 4rem', minHeight: 'calc(100vh - 400px)', backgroundColor: 'var(--theme-hover)' }}>
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <h1 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '2.5rem', fontWeight: 'bold' }}>
+                    <h1 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--theme-text)' }}>
                         Professional CV Templates
                     </h1>
-                    <p style={{ textAlign: 'center', marginBottom: '3rem', color: '#666', fontSize: '1.1rem' }}>
+                    <p style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--theme-text-muted)', fontSize: '1.1rem' }}>
                         Stand out with our curriculum vitae templates designed for every career stage
                     </p>
 
@@ -34,17 +34,17 @@ const CvTemplates = () => {
                     }}>
                         {cvTemplates.map((template) => (
                             <div key={template.id} className="template-card" style={{
-                                border: '1px solid #e5e7eb',
+                                border: '1px solid var(--theme-border)',
                                 borderRadius: '12px',
                                 overflow: 'hidden',
                                 transition: 'transform 0.2s, box-shadow 0.2s',
                                 cursor: 'pointer',
-                                backgroundColor: 'white',
+                                backgroundColor: 'var(--theme-card-bg)',
                                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                             }}>
                                 <div style={{
                                     height: '350px',
-                                    backgroundColor: '#f3f4f6',
+                                    backgroundColor: 'var(--theme-hover)',
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
@@ -87,8 +87,8 @@ const CvTemplates = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div style={{ padding: '1.5rem', textAlign: 'center', borderTop: '1px solid #f3f4f6' }}>
-                                    <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1f2937', marginBottom: '0.5rem' }}>{template.name}</h3>
+                                <div style={{ padding: '1.5rem', textAlign: 'center', borderTop: '1px solid var(--theme-border)' }}>
+                                    <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--theme-text)', marginBottom: '0.5rem' }}>{template.name}</h3>
                                     <button className="btn btn-primary" style={{ marginTop: '0.5rem', padding: '0.5rem 1.5rem' }}>Create CV</button>
                                 </div>
                             </div>
