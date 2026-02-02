@@ -19,7 +19,8 @@ const Builder = () => {
         education: [],
         skills: [],
         languages: [],
-        interests: []
+        interests: [],
+        socialLinks: { linkedin: '', github: '', twitter: '', portfolio: '' }
     });
 
     const [visibleTemplatesCount, setVisibleTemplatesCount] = useState(6);
@@ -29,15 +30,21 @@ const Builder = () => {
 
     const steps = [
         { id: 0, title: 'Personal', icon: User },
-        { id: 1, title: 'Experiences', icon: FileText }, // Covers Work & Education
-        { id: 2, title: 'Template', icon: PenTool }
+        { id: 1, title: 'Experiences', icon: FileText },
+        { id: 2, title: 'Additional', icon: CheckCircle }, // Languages, Hobbies, Social
+        { id: 3, title: 'Template', icon: PenTool }
     ];
 
-    const handleInputChange = (section, field, value, index = null) => {
+    const checkAuth = () => {
         if (!localStorage.getItem('token')) {
             navigate('/login');
-            return;
+            return false;
         }
+        return true;
+    };
+
+    const handleInputChange = (section, field, value, index = null) => {
+        if (!checkAuth()) return;
         setCvData(prev => {
             const newData = { ...prev };
             if (index !== null && Array.isArray(newData[section])) {
@@ -52,10 +59,7 @@ const Builder = () => {
     };
 
     const handlePhotoUpload = (e) => {
-        if (!localStorage.getItem('token')) {
-            navigate('/login');
-            return;
-        }
+        if (!checkAuth()) return;
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -67,10 +71,7 @@ const Builder = () => {
     };
 
     const handleAddItem = (section, item) => {
-        if (!localStorage.getItem('token')) {
-            navigate('/login');
-            return;
-        }
+        if (!checkAuth()) return;
         setCvData(prev => ({
             ...prev,
             [section]: [...(prev[section] || []), item]
@@ -184,6 +185,9 @@ const Builder = () => {
                                         <input
                                             id="photo-upload"
                                             type="file"
+                                            onClick={(e) => {
+                                                if (!checkAuth()) e.preventDefault();
+                                            }}
                                             accept="image/*"
                                             onChange={handlePhotoUpload}
                                             style={{ display: 'none' }}
@@ -199,6 +203,7 @@ const Builder = () => {
                                             type="text"
                                             className="input-field"
                                             value={cvData.personal.fullName}
+                                            onFocus={checkAuth}
                                             onChange={(e) => handleInputChange('personal', 'fullName', e.target.value)}
                                             placeholder="e.g. Amelia Davis"
                                         />
@@ -209,6 +214,7 @@ const Builder = () => {
                                             type="text"
                                             className="input-field"
                                             value={cvData.personal.jobTitle}
+                                            onFocus={checkAuth}
                                             onChange={(e) => handleInputChange('personal', 'jobTitle', e.target.value)}
                                             placeholder="e.g. Software Engineer"
                                         />
@@ -219,6 +225,7 @@ const Builder = () => {
                                             type="email"
                                             className="input-field"
                                             value={cvData.personal.email}
+                                            onFocus={checkAuth}
                                             onChange={(e) => handleInputChange('personal', 'email', e.target.value)}
                                             placeholder="e.g. amelia@example.com"
                                         />
@@ -229,6 +236,7 @@ const Builder = () => {
                                             type="text"
                                             className="input-field"
                                             value={cvData.personal.phone}
+                                            onFocus={checkAuth}
                                             onChange={(e) => handleInputChange('personal', 'phone', e.target.value)}
                                             placeholder="e.g. +44 20 7946 0638"
                                         />
@@ -239,6 +247,7 @@ const Builder = () => {
                                             type="text"
                                             className="input-field"
                                             value={cvData.personal.address}
+                                            onFocus={checkAuth}
                                             onChange={(e) => handleInputChange('personal', 'address', e.target.value)}
                                             placeholder="e.g. London, UK"
                                         />
@@ -249,6 +258,7 @@ const Builder = () => {
                                             className="input-field"
                                             rows="4"
                                             value={cvData.summary.objective}
+                                            onFocus={checkAuth}
                                             onChange={(e) => handleInputChange('summary', 'objective', e.target.value)}
                                             placeholder="Briefly describe your professional background and goals..."
                                         ></textarea>
@@ -381,6 +391,157 @@ const Builder = () => {
                         )}
 
                         {activeStep === 2 && (
+                            <div className="fade-in">
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#1f2937' }}>Additional Details</h2>
+
+                                {/* Languages */}
+                                <div style={{ marginBottom: '2rem' }}>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Languages</h3>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
+                                        {cvData.languages.map((lang, index) => (
+                                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#f3f4f6', color: '#374151', padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.9rem' }}>
+                                                <span>{typeof lang === 'string' ? lang : `${lang.name} (${lang.level})`}</span>
+                                                <button onClick={() => handleRemoveItem('languages', index)} style={{ border: 'none', background: 'none', color: '#ef4444', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>✕</button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                        <input
+                                            type="text"
+                                            id="lang-input"
+                                            className="input-field"
+                                            placeholder="e.g. English"
+                                            style={{ marginBottom: 0, flex: 2 }}
+                                            onFocus={checkAuth}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter' && e.target.value.trim()) {
+                                                    const level = document.getElementById('lang-level').value;
+                                                    handleAddItem('languages', { name: e.target.value.trim(), level });
+                                                    e.target.value = '';
+                                                }
+                                            }}
+                                        />
+                                        <select
+                                            id="lang-level"
+                                            className="input-field"
+                                            style={{ marginBottom: 0, flex: 1, padding: '0.75rem' }}
+                                            onFocus={checkAuth}
+                                        >
+                                            <option value="Fluent">Fluent</option>
+                                            <option value="Intermediate">Intermediate</option>
+                                            <option value="Expert">Expert</option>
+                                            <option value="Basic">Basic</option>
+                                            <option value="Native">Native</option>
+                                        </select>
+                                        <button
+                                            className="btn"
+                                            style={{ backgroundColor: '#10b981', color: 'white' }}
+                                            onClick={() => {
+                                                const input = document.getElementById('lang-input');
+                                                const level = document.getElementById('lang-level').value;
+                                                if (input.value.trim()) {
+                                                    handleAddItem('languages', { name: input.value.trim(), level });
+                                                    input.value = '';
+                                                }
+                                            }}
+                                        >Add</button>
+                                    </div>
+                                </div>
+
+                                {/* Hobbies */}
+                                <div style={{ marginBottom: '2rem' }}>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Hobbies & Interests</h3>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
+                                        {cvData.interests.map((hobby, index) => (
+                                            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#f3f4f6', color: '#374151', padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.9rem' }}>
+                                                <span>{hobby}</span>
+                                                <button onClick={() => handleRemoveItem('interests', index)} style={{ border: 'none', background: 'none', color: '#ef4444', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>✕</button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                        <input
+                                            type="text"
+                                            id="hobby-input"
+                                            className="input-field"
+                                            placeholder="e.g. Photography"
+                                            style={{ marginBottom: 0 }}
+                                            onFocus={checkAuth}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter' && e.target.value.trim()) {
+                                                    handleAddItem('interests', e.target.value.trim());
+                                                    e.target.value = '';
+                                                }
+                                            }}
+                                        />
+                                        <button
+                                            className="btn"
+                                            style={{ backgroundColor: '#10b981', color: 'white' }}
+                                            onClick={() => {
+                                                const input = document.getElementById('hobby-input');
+                                                if (input.value.trim()) {
+                                                    handleAddItem('interests', input.value.trim());
+                                                    input.value = '';
+                                                }
+                                            }}
+                                        >Add</button>
+                                    </div>
+                                </div>
+
+                                {/* Social Links */}
+                                <div style={{ marginBottom: '2rem' }}>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem', color: '#4b5563' }}>Social Links</h3>
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                        <div>
+                                            <label className="label">LinkedIn</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="linked.com/in/username"
+                                                value={cvData.socialLinks.linkedin}
+                                                onFocus={checkAuth}
+                                                onChange={(e) => handleInputChange('socialLinks', 'linkedin', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="label">GitHub</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="github.com/username"
+                                                value={cvData.socialLinks.github}
+                                                onFocus={checkAuth}
+                                                onChange={(e) => handleInputChange('socialLinks', 'github', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="label">Twitter / X</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="twitter.com/username"
+                                                value={cvData.socialLinks.twitter}
+                                                onFocus={checkAuth}
+                                                onChange={(e) => handleInputChange('socialLinks', 'twitter', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="label">Portfolio</label>
+                                            <input
+                                                type="text"
+                                                className="input-field"
+                                                placeholder="yourwebsite.com"
+                                                value={cvData.socialLinks.portfolio}
+                                                onFocus={checkAuth}
+                                                onChange={(e) => handleInputChange('socialLinks', 'portfolio', e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {activeStep === 3 && (
                             <div className="fade-in">
                                 <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#1f2937' }}>Choose Your Template</h2>
                                 <p style={{ color: '#6b7280', marginBottom: '2rem' }}>Every template here now reflects your information in real-time!</p>

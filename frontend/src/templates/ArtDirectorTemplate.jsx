@@ -98,8 +98,13 @@ const ArtDirectorTemplate = ({ data = {} }) => {
                     <div style={{ marginBottom: '2.5rem' }}>
                         <h3 style={{ borderBottom: '2px solid #4b5563', paddingBottom: '0.5rem', marginBottom: '1rem', textTransform: 'uppercase', fontSize: '1.2rem', fontWeight: 'bold', letterSpacing: '1px' }}>Languages</h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            {['English', 'German (basic)', 'Spanish (basic)'].map((lang, i) => (
-                                <div key={i} style={{ fontSize: '0.95rem' }}>• {lang}</div>
+                            {(languages.length ? languages : [
+                                { name: 'English', level: 'Fluent' },
+                                { name: 'German', level: 'Basic' }
+                            ]).map((lang, i) => (
+                                <div key={i} style={{ fontSize: '0.95rem' }}>
+                                    • {typeof lang === 'string' ? lang : `${lang.name} (${lang.level})`}
+                                </div>
                             ))}
                         </div>
                     </div>

@@ -138,16 +138,18 @@ const CambridgeTemplate = ({ data }) => {
                         </h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.85rem' }}>
                             {(languages.length ? languages : [
-                                { name: 'English', level: 5 },
-                                { name: 'French', level: 4 },
-                                { name: 'Spanish', level: 3 },
-                                { name: 'German', level: 2 }
-                            ]).map((lang, i) => (
-                                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <span style={{ fontWeight: '600' }}>{typeof lang === 'string' ? lang : lang.name}</span>
-                                    <RatingDots level={typeof lang === 'string' ? 4 : lang.level} />
-                                </div>
-                            ))}
+                                { name: 'English', level: 'Fluent' },
+                                { name: 'French', level: 'Intermediate' }
+                            ]).map((lang, i) => {
+                                const levelMap = { 'Expert': 5, 'Native': 5, 'Fluent': 4, 'Intermediate': 3, 'Basic': 2 };
+                                const levelValue = typeof lang === 'string' ? 4 : (levelMap[lang.level] || 4);
+                                return (
+                                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                        <span style={{ fontWeight: '600' }}>{typeof lang === 'string' ? lang : lang.name}</span>
+                                        <RatingDots level={levelValue} />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 )}

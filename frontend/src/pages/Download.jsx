@@ -4,7 +4,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { TEMPLATE_COMPONENTS } from '../config/templateMap';
 import html2pdf from 'html2pdf.js';
-import { ArrowLeft, Download as DownloadIcon } from 'lucide-react';
+import { ArrowLeft, Download as DownloadIcon, Star } from 'lucide-react';
+import { TEMPLATE_TESTIMONIALS, DEFAULT_TESTIMONIALS } from '../data/testimonialsData';
 
 const Download = () => {
     const location = useLocation();
@@ -24,6 +25,8 @@ const Download = () => {
     }
 
     const ActiveTemplate = TEMPLATE_COMPONENTS[selectedTemplate] || TEMPLATE_COMPONENTS['Cambridge'];
+
+    const activeTestimonials = TEMPLATE_TESTIMONIALS[selectedTemplate] || DEFAULT_TESTIMONIALS;
 
     const handleDownload = () => {
         const element = resumeRef.current;
@@ -113,9 +116,65 @@ const Download = () => {
                         Ready to apply? Get your professional PDF now.
                     </p>
                 </div>
+
+                {/* Feedback Slider */}
+                <div style={{ width: '100%', overflow: 'hidden', padding: '2rem 0', marginBottom: '4rem' }}>
+                    <h3 style={{ textAlign: 'center', marginBottom: '2.5rem', fontSize: '1.4rem', fontWeight: 'bold', color: '#374151' }}>Success Stories</h3>
+                    <div className="marquee-container">
+                        <div className="marquee-content">
+                            {/* Triple for even smoother infinite scroll */}
+                            {[...activeTestimonials, ...activeTestimonials, ...activeTestimonials].map((t, i) => (
+                                <div key={i} className="testimonial-card">
+                                    <div style={{ display: 'flex', gap: '2px', marginBottom: '0.5rem' }}>
+                                        {[...Array(t.rating)].map((_, starIdx) => (
+                                            <Star key={starIdx} size={14} fill="#fbbf24" color="#fbbf24" />
+                                        ))}
+                                    </div>
+                                    <p style={{ fontSize: '0.85rem', color: '#4b5563', fontStyle: 'italic', marginBottom: '1rem', lineHeight: '1.5' }}>"{t.feedback}"</p>
+                                    <div style={{ fontWeight: '600', fontSize: '0.8rem', color: '#1f2937' }}>- {t.name}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <Footer />
+
+            <style>{`
+                .marquee-container {
+                    width: 100vw;
+                    max-width: 100%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    position: relative;
+                }
+                .marquee-content {
+                    display: inline-flex;
+                    animation: marquee 60s linear infinite;
+                }
+                .marquee-content:hover {
+                    animation-play-state: paused;
+                }
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-33.33%); }
+                }
+                .testimonial-card {
+                    flex: 0 0 280px;
+                    margin: 0 1rem;
+                    background: white;
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                    white-space: normal;
+                    border: 1px solid #e5e7eb;
+                    transition: transform 0.3s;
+                }
+                .testimonial-card:hover {
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                }
+            `}</style>
         </div>
     );
 };

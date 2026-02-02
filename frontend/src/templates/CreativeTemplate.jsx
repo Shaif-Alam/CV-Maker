@@ -7,7 +7,8 @@ const CreativeTemplate = ({ data = {} }) => {
         summary = {},
         experience = [],
         education = [],
-        skills = []
+        skills = [],
+        languages = []
     } = data;
 
     return (
@@ -95,6 +96,20 @@ const CreativeTemplate = ({ data = {} }) => {
                         <p style={{ fontSize: '0.85rem', lineHeight: '1.6', color: '#666' }}>
                             {summary.objective || "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
                         </p>
+                    </div>
+
+                    <div style={{ textAlign: 'left', marginTop: '2.5rem' }}>
+                        <h3 style={{ color: '#555', fontSize: '1.2rem', fontWeight: 'bold', borderBottom: '2px solid #6b9bd1', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Languages</h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.85rem' }}>
+                            {(languages.length ? languages : [
+                                { name: 'English', level: 'Fluent' },
+                                { name: 'French', level: 'Intermediate' }
+                            ]).map((lang, i) => (
+                                <div key={i} style={{ color: '#666' }}>
+                                    {typeof lang === 'string' ? lang : `${lang.name} (${lang.level})`}
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     <div style={{ textAlign: 'left', marginTop: '2.5rem' }}>

@@ -6,7 +6,8 @@ const StanfordTemplate = ({ data = {} }) => {
         summary = {},
         experience = [],
         education = [],
-        skills = []
+        skills = [],
+        languages = []
     } = data;
 
     return (
@@ -76,6 +77,18 @@ const StanfordTemplate = ({ data = {} }) => {
                     <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                         {(skills.length ? skills : ['UI/UX Design', 'React / Angular', 'Node.js', 'Team Leadership']).map((skill, i) => (
                             <li key={i}>{typeof skill === 'string' ? skill : skill.name}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style={{ borderBottom: '1px solid rgba(255,255,255,0.3)', paddingBottom: '0.5rem', marginBottom: '1rem', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>Languages</h4>
+                    <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', opacity: 0.9 }}>
+                        {(languages.length ? languages : [
+                            { name: 'English', level: 'Fluent' },
+                            { name: 'Spanish', level: 'Intermediate' }
+                        ]).map((lang, i) => (
+                            <li key={i}>{typeof lang === 'string' ? lang : `${lang.name} (${lang.level})`}</li>
                         ))}
                     </ul>
                 </div>
